@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container col-md-6">
+
+   <div class='alert alert-success' role='alert'
+   <p>{{success}}</p></div>
+
+   <h1>Showing Puppies</h1>
+
+   <div class="bs-example" data-example-id="striped-table">
+    <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th>Puppy Name</th>
+          <th>Puppy ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for puppy in puppies%}
+        <tr>
+          <td>{{puppy.name}}</td>
+          <td>{{puppy.id}}</td>
+        </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container col-md-6" >
+
+   <h1>Showing People</h1>
+
+   <div class="bs-example" data-example-id="striped-table">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Hobby</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for person in people%}
+        <tr>
+          <td>{{person.name}}</td>
+          <td>{{person.hobby}}</td>
+        </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+
+    <a href="/"><button class="btn btn-default">Add More</button></a>
+  </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+  {% for error in errors %}
+    <p>{{ error }}</p>
+    {% endfor %}
+
+    <form action='/submit' method='POST'>
+  <div class="form-group">
+    <label for="puppy-name">Puppy Name</label>
+    <input type="text" class="form-control" id="puppy-name" name='puppyName' placeholder="Puppy Name">
+  </div>
+
+   <div class="form-group">
+    <label for="puppy-id">Puppy ID</label>
+    <input type="text" class="form-control" id="puppy-id" name='puppyID' placeholder="Puppy ID">
+  </div>
+
+    <button type="submit" class="btn btn-default">Create Puppy</button>
+</form><br><br>
+
+<form action='/person' method='POST'>
+  <div class="form-group">
+    <label for="person-name">Name</label>
+    <input type="text" class="form-control" id="person-name" name='personName' placeholder="name">
+  </div>
+
+  <div class="form-group">
+    <label for="person-hobby">Hobby</label>
+    <input type="text" class="form-control" id="hobby" name='hobby' placeholder="hobby">
+  </div>
+
+  <button type="submit" class="btn btn-default">Create Person</button>
+</form>
+
+
+
+
+
+
+
+
+
+  </div>
+
+{% endblock %}
