@@ -17,7 +17,7 @@ router.post('/submit', function(req,res, next) {
   var puppyInputName = req.body.puppyName;
   var puppyInputID = req.body.puppyID;
 
-  var errors = puppyValidationCheck(puppyInputName, puppyInputID);
+  var errors = validationCheck(puppyInputName, puppyInputID);
 
   if (errors.length > 0) {
     res.render('index', {
@@ -38,22 +38,22 @@ router.post('/submit', function(req,res, next) {
   }
 });
 
-function puppyValidationCheck(puppyName, puppyId) {
+function validationCheck(input1, input2) {
 
   var errorArray = [];
-  var puppyNameTrimmed = puppyName.trim();
-  var puppyIdTrimmed = puppyId.trim();
+  var input1Trimmed = input1.trim();
+  var input2Trimmed = input2.trim();
 
   // puppy name validations
-  if(puppyNameTrimmed === '') {
-    errorArray.push("Name cannot be blank.");
+  if(input1Trimmed === '') {
+    errorArray.push("Please enter a name.");
   }
 
   // puppy ID validations
-  if(puppyIdTrimmed === '') {
-    errorArray.push('Id cannot be blank.');
-  } else if (puppyIdTrimmed.length < 3) {
-    errorArray.push('A Id must be at least 3 characters long.');
+  if(input2Trimmed === '') {
+    errorArray.push('The Id or Hobby cannot be left blank.');
+  } else if (input2Trimmed.length < 3) {
+    errorArray.push('The Id or Hobby must be at least 3 characters long.');
   }
 
   return errorArray;
@@ -73,7 +73,7 @@ router.post('/person', function(req,res, next) {
   var personInputName = req.body.personName;
   var personHobby = req.body.hobby;
 
-  var errors = puppyValidationCheck(personInputName, personHobby);
+  var errors = validationCheck(personInputName, personHobby);
 
   if (errors.length > 0) {
     res.render('index', {
